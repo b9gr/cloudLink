@@ -16,6 +16,12 @@ def shorten_url(request):
         form = ShortenURLForm(request.POST)
         if form.is_valid():
             long_url = form.cleaned_data['long_url']
+
+            # Check if the long_url already exists in the database
+            existing_short_url = ShortenedURL.objects.filter(long_url=long_url).first()
+            if existing_short_url:
+                return render(request, 'cloudLinkCore/success.html', {'short_url': existing_short_url})
+
             short_code = generate_short_code(long_url)
             short_url = ShortenedURL.objects.create(long_url=long_url, short_code=short_code)
             return render(request, 'cloudLinkCore/success.html', {'short_url': short_url})
