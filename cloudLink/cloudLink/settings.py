@@ -30,7 +30,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-ALLOWED_HOSTS = ['cloudlinkkk.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
