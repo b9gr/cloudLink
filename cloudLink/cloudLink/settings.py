@@ -32,6 +32,11 @@ STATICFILES_DIRS = (
 
 ALLOWED_HOSTS = ['*']
 
+SECURE_SSL_REDIRECT = True
+CSRF_COOKIE_SECURE = True
+CSRF_USE_SESSIONS = True
+
+
 
 # Application definition
 
